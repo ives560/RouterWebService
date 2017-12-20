@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Flask Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+
+    <!-- MetisMenu CSS -->
+    <link href="/static/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="/static/dist/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="/static/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">RaspAP Wifi Portal v1.3.0</a>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- Navigation -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.html?page=wlan0_info"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=wpa_conf"><i class="fa fa-signal fa-fw"></i> Configure WiFi Client</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=hostapd_conf"><i class="fa fa-dot-circle-o fa-fw"></i> Configure Hotspot</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=network_conf"><i class="fa fa-sitemap fa-fw"></i> Configure Networking</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=dhcpd_conf"><i class="fa fa-exchange fa-fw"></i> Configure DHCP Server</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=auth_conf"><i class="fa fa-lock fa-fw"></i> Configure Auth</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=theme_conf"><i class="fa fa-wrench fa-fw"></i> Change Theme</a>
+                        </li>
+                        <li>
+                            <a href="index.html?page=system_info"><i class="fa fa-cube fa-fw"></i> System</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.navbar-default -->
+        </nav>
+        <div id="page-wrapper">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <img class="logo" src="/static/img/raspAP-logo.png" width="45" height="45">RaspAP
+                    </h1>
+                </div>
+            </div><!-- /.row -->
+            <div class="container body-content">
+                {% block content %}{% endblock %}
+                <hr />
+                <footer>
+                    <p>&copy; {{ year }} - My Flask Application</p>
+                </footer>
+            </div>
+        </div><!-- /#page-wrapper -->
+    </div><!-- /#wrapper -->
+
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><i class="fa fa-dashboard fa-fw"></i> Dashboard   </div>
+            <div class="panel-body">
+                <p>{{Messages}}</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h4>Interface Information</h4>
+                                <div class="info-item">Interface Name</div> wlan0</br>
+                                <div class="info-item">IP Address</div>     {{strIPAddress}}</br>
+                                <div class="info-item">Subnet Mask</div>    {{strNetMask}}</br>
+                                <div class="info-item">Mac Address</div>    {{strHWAddress}}</br></br>
+
+                                <h4>Interface Statistics</h4>
+                                <div class="info-item">Received Packets</div>    {{strRxPackets}}</br>
+                                <div class="info-item">Received Bytes</div>      {{strRxBytes}}</br></br>
+                                <div class="info-item">Transferred Packets</div> {{strTxPackets}}</br>
+                                <div class="info-item">Transferred Bytes</div>   {{strTxBytes}}</br>
+                            </div><!-- /.panel-body -->
+                        </div><!-- /.panel-default -->
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body wireless">
+                                <h4>Wireless Information</h4>
+                                <div class="info-item">Connected To</div>   {{strSSID}}</br>
+                                <div class="info-item">AP Mac Address</div> {{strBSSID}}</br>
+                                <div class="info-item">Bitrate</div>        {{strBitrate}}</br>
+                                <div class="info-item">Signal Level</div>        {{strSignalLevel}}</br>
+                                <div class="info-item">Transmit Power</div> {{strTxPower}}</br>
+                                <div class="info-item">Frequency</div>      {{strFrequency}}</br></br>
+                                <div class="info-item">Link Quality</div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active"
+                                         role="progressbar"
+                                         aria-valuenow="{{strLinkQuality}}" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: {{strLinkQuality}}">
+                                        {{strLinkQuality}}
+                                    </div>
+                                </div>
+                            </div><!-- /.panel-body -->
+                        </div><!-- /.panel-default -->
+                    </div><!-- /.col-md-6 -->
+                </div><!-- /.row -->
+                <div class="col-lg-12">
+                    <div class="row">
+                        <form action="?page=wlan0_info" method="POST">
+                            {% if wlan0up %}
+                            <input type="submit" class="btn btn-success" value="Start wlan0" name="ifup_wlan0" />
+                            {% else %}
+                            <input type="submit" class="btn btn-warning" value="Stop wlan0" name="ifdown_wlan0" />
+                            {% endif %}
+                            <input type="button" class="btn btn-outline btn-primary" value="Refresh" onclick="document.location.reload(true)" />
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.panel-body -->
+            <div class="panel-footer">Information provided by ifconfig and iwconfig</div>
+        </div><!-- /.panel-default -->
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+{% endblock %}
