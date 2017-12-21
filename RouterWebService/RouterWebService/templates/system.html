@@ -4,6 +4,13 @@
 
 {% block content %}
 
+{% set hostname = "My Raspberry" %}
+{% set RPiVersion = "Model B Revision 2.0 (512 MB)" %}
+{% set uptime = "2017.12.23" %}
+{% set memused = 50 %}
+
+{% set cpuload = 50 %}
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary">
@@ -33,24 +40,25 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <h4>System Information</h4>
-                                                <div class="info-item">Hostname</div> {{hostname}}</br>
-                                                <div class="info-item">Pi Revision</div> <?php echo RPiVersion() ?></br>
-                                                <div class="info-item">Uptime</div>   {{uptime}}</br></br>
+                                                <div class="info-item">Hostname{{hostname}}</div>
+                                                <div class="info-item">Pi Revision{{RPiVersion}}</div>
+                                                <div class="info-item">Uptime{{uptime}}</div>
+                                                <br />
                                                 <div class="info-item">Memory Used</div>
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-{{memused_status}} progress-bar-striped active"
                                                          role="progressbar"
                                                          aria-valuenow="{{memused}}" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: {{memused}}">
+                                                         style="width: {{memused}}%;">
                                                         {{memused}}
                                                     </div>
                                                 </div>
                                                 <div class="info-item">CPU Load</div>
                                                 <div class="progress">
-                                                    <div class="progress-bar progress-bar-<?php echo $cpuload_status ?> progress-bar-striped active"
+                                                    <div class="progress-bar progress-bar-{{cpuload_status}} progress-bar-striped active"
                                                          role="progressbar"
                                                          aria-valuenow="{{cpuload}}" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: {{cpuload}}">
+                                                         style="width: {{cpuload}}%;">
                                                         {{cpuload}}
                                                     </div>
                                                 </div>
@@ -63,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="console">
-                                        <iframe src="webconsole.html" class="webconsole"></iframe>
+                                        <iframe src="webconsole" class="webconsole"></iframe>
                                     </div>
 
                                 </div><!-- /.panel-body -->
